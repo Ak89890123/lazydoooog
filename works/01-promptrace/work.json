@@ -1,0 +1,14 @@
+{
+  "title": "PrompTrace",
+  "summary": "Local-first Chrome 擴充功能：把散落在 AI 工具與網頁的 prompt、參考素材與輸出，整理成可搜尋、可重用的紀錄。",
+  "tags": [
+    "TypeScript",
+    "React",
+    "Chrome MV3",
+    "IndexedDB",
+    "Playwright"
+  ],
+  "href": "https://chromewebstore.google.com/detail/promptrace/oldplaljcnknmkdndaifbgelieahfbdp",
+  "linkLabel": "Chrome Web Store",
+  "frame": "console"
+}

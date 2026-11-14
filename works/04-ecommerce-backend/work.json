@@ -1,0 +1,13 @@
+{
+  "title": "半自動電商商品後台",
+  "summary": "在 Google Sheets 選單按一下，n8n 就用 AI 推算訂價、重量與運費，並把商品組圖同步到雲端。",
+  "tags": [
+    "n8n",
+    "LLM",
+    "Google Sheets",
+    "GCS"
+  ],
+  "href": "https://brave-cricket-1e4.notion.site/AI-23f6e83c928880d0b45ff6db26679604",
+  "linkLabel": "看完整作品集",
+  "frame": "console"
+}

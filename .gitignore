@@ -1,0 +1,66 @@
+# Dependencies and build output
+node_modules/
+dist/
+.vite/
+
+# Secrets and machine-local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.local.*
+
+# Local development tools and agent state
+.agents/
+.codex/
+.codebase-memory/
+.codegraph/
+.gstack/
+.impeccable/
+.local/
+.media/
+.playwright-cli/
+.scratch/
+.worktrees/
+goals/
+registry/
+tools/
+skills-lock.json
+
+# Local-only development documentation and launch helpers
+AGENTS.md
+CONTEXT.md
+DESIGN.md
+PRODUCT.md
+docs/
+/scripts/*
+!/scripts/works.mjs
+open-resume.cmd
+.cbmignore
+get work/
+hero-tv-poc/
+legacy/
+scroll resume/
+
+# QA, temporary, and generated output
+coverage/
+output/
+outputs/
+tmp/
+.tmp-*
+*.log
+
+# Local source media and generation projects
+assets/
+videos/
+
+# Editor and operating-system noise
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Runtime assets live under public/assets
+!/public/assets/
+!/public/assets/**

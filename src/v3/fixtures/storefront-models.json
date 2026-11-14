@@ -1,0 +1,74 @@
+[
+  {
+    "name": "山城超市",
+    "source": "assets/source-media/v3/runner/buildings/supermarket-v1/supermarket-rodin-v1.glb",
+    "sourceSha256": "1a30460f3af3c553641f148b3f9aa1f6534c8163b6388e2875f17edcf43e4512",
+    "model": "/assets/models/runner-shop-01.glb",
+    "trianglesBefore": 181940,
+    "triangles": 182624,
+    "bytes": 2412460,
+    "width": 7.594316,
+    "height": 8.499998,
+    "depth": 5.697194
+  },
+  {
+    "name": "永發機車行",
+    "source": "assets/source-media/v3/runner/buildings/motorcycle-shop-v1/motorcycle-shop-rodin-v1.glb",
+    "sourceSha256": "d13317d75851ff56b0db440e56d12eaec296153b65cc81fc29585ed4a0f006f1",
+    "model": "/assets/models/runner-shop-02.glb",
+    "trianglesBefore": 500000,
+    "triangles": 132528,
+    "bytes": 3518684,
+    "width": 4.822454,
+    "height": 5.8,
+    "depth": 5.561324
+  },
+  {
+    "name": "無法度藥局",
+    "source": "assets/source-media/v3/runner/buildings/pharmacy-v1/base_high_pbr.glb",
+    "sourceSha256": "097e81c5dcc181ad443b30bcef1fcf6011587041e00a20409c2fdbe76577974e",
+    "model": "/assets/models/runner-shop-03.glb",
+    "trianglesBefore": 500000,
+    "triangles": 146913,
+    "bytes": 4736520,
+    "width": 5.913354,
+    "height": 7.5,
+    "depth": 6.047445
+  },
+  {
+    "name": "要不要吃哈密瓜水果行",
+    "source": "assets/source-media/v3/runner/buildings/cantaloupe-fruit-shop-v1/base_high_pbr.glb",
+    "sourceSha256": "fe98a69e33689b0644cc7d24053ccec8790b139fd2bb5f7ddc43021a369f6ff1",
+    "model": "/assets/models/runner-shop-04.glb",
+    "trianglesBefore": 500000,
+    "triangles": 160140,
+    "bytes": 4775144,
+    "width": 4.785544,
+    "height": 6.2,
+    "depth": 5.364753
+  },
+  {
+    "name": "目目眼鏡行",
+    "source": "assets/source-media/v3/runner/buildings/mumu-optical-v1/base_high_pbr.glb",
+    "sourceSha256": "1f80c0b208b0e4c90e465f60f67050b1cf5360b4dcb379bc056050543753c7a6",
+    "model": "/assets/models/runner-shop-05.glb",
+    "trianglesBefore": 500000,
+    "triangles": 150948,
+    "bytes": 4601116,
+    "width": 8.43977,
+    "height": 8,
+    "depth": 7.910153
+  },
+  {
+    "name": "WODERNOW",
+    "source": "assets/source-media/v3/runner/buildings/wodernow-v1/model.glb",
+    "sourceSha256": "afa86735ade9e92973b5e5e5b8d330bc407a824646e309fcf314c2c8023b8708",
+    "model": "/assets/models/runner-shop-06.glb",
+    "trianglesBefore": 83132,
+    "triangles": 83832,
+    "bytes": 969404,
+    "width": 8.133129,
+    "height": 3.8,
+    "depth": 8.039281
+  }
+]

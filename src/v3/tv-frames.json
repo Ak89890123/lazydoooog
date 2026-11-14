@@ -1,0 +1,83 @@
+{
+  "frames": [
+    {
+      "id": "tv-console",
+      "src": "/assets/v3/tv-console.webp",
+      "width": 960,
+      "height": 670,
+      "screen": {
+        "x": 7.98,
+        "y": 9.87,
+        "w": 69.25,
+        "h": 74.56
+      }
+    },
+    {
+      "id": "tv-portable",
+      "src": "/assets/v3/tv-portable.webp",
+      "width": 960,
+      "height": 1140,
+      "screen": {
+        "x": 11.29,
+        "y": 36.25,
+        "w": 77.31,
+        "h": 47.04
+      }
+    },
+    {
+      "id": "tv-monitor",
+      "src": "/assets/v3/tv-monitor.webp",
+      "width": 960,
+      "height": 644,
+      "screen": {
+        "x": 14.65,
+        "y": 12.37,
+        "w": 70.55,
+        "h": 69.13
+      }
+    }
+  ],
+  "obstacles": [
+    {
+      "id": "paper",
+      "src": "/assets/v3/obstacles/paper.webp",
+      "width": 217,
+      "height": 240
+    },
+    {
+      "id": "box",
+      "src": "/assets/v3/obstacles/box.webp",
+      "width": 240,
+      "height": 176
+    },
+    {
+      "id": "inbox",
+      "src": "/assets/v3/obstacles/inbox.webp",
+      "width": 240,
+      "height": 171
+    },
+    {
+      "id": "cone",
+      "src": "/assets/v3/obstacles/cone.webp",
+      "width": 197,
+      "height": 240
+    },
+    {
+      "id": "computer",
+      "src": "/assets/v3/obstacles/computer.webp",
+      "width": 240,
+      "height": 197
+    },
+    {
+      "id": "binders",
+      "src": "/assets/v3/obstacles/binders.webp",
+      "width": 240,
+      "height": 146
+    }
+  ],
+  "runner": {
+    "src": "/assets/v3/runner-bg.webp",
+    "width": 1375,
+    "height": 600
+  }
+}

@@ -1,0 +1,443 @@
+:root {
+  --black: #080a0b;
+  --surface-soft: rgba(15, 18, 19, 0.78);
+  --chalk: #f2f3ee;
+  --steel: #a4aaa5;
+  --line: rgba(238, 241, 232, 0.18);
+  --lime: #c8ff35;
+  --pink: #ff3b9d;
+  --orange: #ff7a2f;
+  --blue: #53a8ff;
+  --display: 'Barlow Condensed', 'Arial Narrow', 'Noto Sans TC', sans-serif;
+  --body: Inter, 'Noto Sans TC', 'Segoe UI', sans-serif;
+  --serif: 'Noto Serif TC', 'Songti TC', PMingLiU, serif;
+  --mono: SFMono-Regular, Consolas, 'Liberation Mono', monospace;
+  --pad: clamp(20px, 4.4vw, 72px);
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+/* No CSS smooth scrolling: it fights ScrollTrigger's own scroll restoration. Anchor links scroll smoothly from JS. */
+html { background: var(--black); }
+
+body {
+  margin: 0;
+  overflow-x: clip;
+  color: var(--chalk);
+  font: 400 clamp(15px, 1.05vw, 18px) / 1.7 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+img,
+video,
+canvas { display: block; max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3, p, dl, dd, ol, ul, figure { margin: 0; }
+/* Chinese headings break only at punctuation, spaces and <wbr> phrase boundaries, never inside a word. */
+h1, h2 { word-break: keep-all; overflow-wrap: break-word; }
+button { font: inherit; }
+:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
+main > section:focus { outline: none; }
+
+.sr-only,
+#experience .section-head,
+.is-runner .game .section-head,
+.is-runner.is-motion .game-unlocks,
+.is-motion.is-hero3d .works-pin > .section-head { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip-link { position: fixed; top: -80px; left: 16px; z-index: 100; padding: 12px 16px; background: var(--lime); color: var(--black); font-weight: 700; text-decoration: none; }
+.skip-link:focus { top: 16px; }
+.only-motion { display: none; }
+.is-motion .only-motion { display: inline; }
+.is-motion .only-static { display: none; }
+
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 48px; padding: 0 22px; border: 1px solid transparent; font: 700 14px / 1 var(--body); letter-spacing: 0.04em; text-decoration: none; cursor: pointer; transition: transform 0.18s ease, border-color 0.18s; }
+.button:hover { transform: translateY(-2px); }
+.button:disabled { opacity: 0.45; cursor: default; transform: none; }
+.button--primary { background: var(--lime); color: var(--black); }
+.button--ghost { border-color: var(--line); background: var(--surface-soft); color: var(--chalk); }
+.button--ghost:hover { border-color: var(--chalk); }
+
+.bar { position: fixed; inset: 0 0 auto; z-index: 60; display: flex; align-items: center; gap: 20px; padding: 14px var(--pad); background: linear-gradient(rgba(8, 10, 11, 0.88), rgba(8, 10, 11, 0)); pointer-events: none; }
+.bar > * { pointer-events: auto; }
+.bar-mark { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.bar-mark img { width: 38px; height: 38px; border-radius: 50%; background: var(--chalk); object-fit: cover; }
+.bar-mark strong { display: block; font-size: 15px; line-height: 1.2; }
+.bar-mark small { display: block; font: 700 10px / 1.3 var(--mono); letter-spacing: 0.12em; color: var(--steel); text-transform: uppercase; }
+.bar-nav { display: flex; gap: 2px; margin-left: auto; padding: 4px; border: 1px solid var(--line); background: var(--surface-soft); backdrop-filter: blur(10px); }
+.bar-nav a { padding: 8px 14px; font: 700 13px / 1 var(--body); letter-spacing: 0.08em; color: var(--steel); text-decoration: none; transition: color 0.2s, background 0.2s; }
+.bar-nav a:hover { color: var(--chalk); }
+.bar-nav a.is-active { background: var(--lime); color: var(--black); }
+.bar-cta { height: 42px; }
+.bar-progress { position: absolute; inset: 0 0 auto; height: 2px; }
+.bar-progress i { display: block; height: 100%; background: var(--lime); transform: scaleX(0); transform-origin: 0 50%; }
+
+.section-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 40px; width: min(100%, 1480px); margin: 0 auto; padding: 0 var(--pad); }
+.section-head h2 { font: 900 clamp(40px, 5vw, 84px) / 1 var(--display); }
+.section-head p { max-width: 38em; margin-top: 12px; color: var(--steel); }
+
+.hero { position: relative; }
+.hero-stage { position: relative; display: grid; }
+.hero-intro,
+.hero-film { grid-area: 1 / 1; }
+.hero-film { position: relative; height: min(92svh, 820px); overflow: hidden; background: #000; }
+.hero-poster { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
+.hero-film video,
+.hero-paper { display: none; }
+.hero-intro { position: relative; z-index: 2; align-self: end; padding: 140px var(--pad) clamp(32px, 7vh, 72px); background: linear-gradient(180deg, transparent, rgba(8, 10, 11, 0.82) 42%, var(--black)); }
+/* The header mark shows the title above 1100px; the kicker carries it only where the mark hides it. */
+.kicker { display: none; font: 700 12px / 1.5 var(--mono); letter-spacing: 0.14em; color: var(--steel); }
+.hero-intro h1 { margin-top: 18px; font: 900 clamp(46px, 6.6vw, 112px) / 0.98 var(--display); }
+.hero-intro h1 > span:not(.hero-letter) { display: block; color: var(--lime); }
+.hero-intro h1 .hero-letter { position: relative; display: inline-block; }
+.hero-glyph { display: inline-block; }
+.hero-particle { position: absolute; top: 50%; left: 50%; width: 0.06em; height: 0.06em; background: currentColor; pointer-events: none; }
+
+.hero-about { position: relative; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); align-items: center; gap: clamp(24px, 4vw, 64px); padding: clamp(72px, 10vh, 120px) var(--pad) clamp(48px, 8vh, 96px); overflow: hidden; background: radial-gradient(ellipse 55% 70% at 74% 58%, rgba(255, 176, 96, 0.2), transparent 70%), linear-gradient(rgba(8, 10, 11, 0.6), rgba(8, 10, 11, 0.9)), url('/assets/v3/wall.webp') center / cover; }
+/* LAZY acrostic. Equal letter slots let lazy-title.js fold the row into this column by slot size. */
+.lazy { font: 900 clamp(68.4px, 8.28vw, 144px) / 0.96 var(--display); }
+.lazy > span { display: block; white-space: nowrap; }
+.lazy b,
+.lazy b + span { display: inline-block; }
+.lazy b { width: 0.6em; color: var(--lime); text-align: center; }
+.lazy .lazy-resolved { color: var(--lime); }
+.lazy .lazy-scrambled { color: var(--steel); }
+.about-dog { justify-self: center; width: auto; max-height: min(74vh, 700px); filter: drop-shadow(0 28px 36px rgba(0, 0, 0, 0.6)); }
+
+.is-motion .hero-stage { display: block; height: 100vh; overflow: hidden; }
+.is-motion .hero-stage > * { position: absolute; inset: 0; }
+.is-motion .hero-film { z-index: 2; height: auto; }
+.is-motion .hero-poster { display: none; }
+.is-motion .hero-film video { display: block; width: 100%; height: 100%; object-fit: contain; background: #000; }
+.is-motion .hero-paper { display: block; z-index: 3; visibility: hidden; opacity: 0; pointer-events: none; }
+.is-motion .hero-paper canvas { width: 100%; height: 100%; }
+.is-motion .hero-about { z-index: 1; visibility: hidden; padding-top: 96px; padding-bottom: 40px; }
+.is-motion .about-copy { transform: translateY(calc((1 - var(--reveal, 1)) * 28px)); }
+.is-motion .hero-intro { z-index: 4; align-self: stretch; display: flex; flex-direction: column; justify-content: flex-end; padding-top: 0; background: linear-gradient(90deg, rgba(8, 10, 11, 0.92), rgba(8, 10, 11, 0.6) 46%, transparent 74%); }
+
+/* Prototype 3D Hero (?hero=3d): the workshop scene replaces film and paper, About becomes an overlay
+   beat, and the works section waits under the pinned stage until the camera lands on its TV row. */
+.hero-3d { display: none; }
+.is-motion.is-hero3d .hero { z-index: 2; }
+.is-motion.is-hero3d .hero-film,
+.is-motion.is-hero3d .hero-paper,
+.is-motion.is-hero3d .about-dog { display: none; }
+.is-motion.is-hero3d .hero-3d { display: block; z-index: 2; background: var(--black); }
+.is-motion.is-hero3d .hero-3d canvas { width: 100%; height: 100%; }
+.is-motion.is-hero3d .hero-about { z-index: 3; background: linear-gradient(90deg, rgba(8, 10, 11, 0.92), rgba(8, 10, 11, 0.6) 46%, transparent 74%); }
+/* One pixel early: resting on the seam, one of the two pins is always fixed, so a scroll the compositor
+   paints before ScrollTrigger runs cannot carry the picture along. */
+.is-motion.is-hero3d .works { margin-top: calc(-100vh - 1px); }
+.is-motion.is-hero3d .hero-3d.is-failed { background: var(--black) url('/assets/v3/hero-dog.webp') center / cover; }
+
+.works { position: relative; overflow-x: clip; }
+.works-pin { display: flex; flex-direction: column; padding: clamp(96px, 13vh, 132px) 0 64px; background: radial-gradient(ellipse 70% 60% at 50% 38%, rgba(255, 170, 90, 0.12), transparent 70%), #090b0c; }
+.is-motion .works-pin { height: 100vh; padding-bottom: 0; overflow: clip; }
+/* The push into the transition TV (main.js) ends on the next section (#game): the TV's screen shows a
+   copy of it, which stands 1:1 over the real one, already at the viewport top, when the pin ends and
+   goes. The pin carries the works background and is the only part of #works taking pointer events, so
+   the empty pin spacer never covers that section, which fills at least the viewport. */
+.is-motion .works { z-index: 1; pointer-events: none; }
+.is-motion .works-pin { pointer-events: auto; }
+.works-pin.is-through { opacity: 0; visibility: hidden; }
+.is-motion .works + section { position: relative; z-index: 0; min-height: 100vh; margin-top: -100vh; }
+.works-remote { display: flex; align-items: center; gap: 10px; }
+.works-channel { min-width: 11ch; font: 700 13px / 1 var(--mono); letter-spacing: 0.14em; color: var(--lime); text-align: center; }
+.remote-btn { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid var(--line); background: var(--surface-soft); color: var(--chalk); font-size: 22px; line-height: 1; cursor: pointer; transition: border-color 0.2s, color 0.2s; }
+.remote-btn:hover { border-color: var(--lime); color: var(--lime); }
+.tv-viewport { flex: 1; display: flex; align-items: center; margin-top: 24px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.tv-viewport::-webkit-scrollbar { display: none; }
+.is-motion .tv-viewport { overflow: visible; }
+/* Desktop: a large TV with its description beside it. The inline padding centres the first channel,
+   a console TV (0.9 x 960/670 of --tv-h wide) plus the 40px gap and the 300px description. */
+.tv-track { --tv-h: clamp(220px, min(58vh, 100vh - 330px, 36vw), 640px); position: relative; display: flex; align-items: flex-start; gap: clamp(48px, 7vw, 120px); width: max-content; margin: 0; padding: 20px max(var(--pad), 50vw - var(--tv-h) * 0.645 - 170px) 28px; list-style: none; }
+.tv-track::before { content: ''; position: absolute; top: calc(20px + var(--tv-h) * 1.1); right: 0; left: 0; height: 16px; background: linear-gradient(#4a4e4f, #232628 45%, #141617); box-shadow: 0 22px 34px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.16); }
+.tv { flex: none; scroll-snap-align: center; }
+/* The transition TV after the last channel (motion only) is as wide as a console channel, so it stands
+   centred at the end of the shelf. */
+.tv-exit { display: none; }
+.is-motion .tv-exit { display: flex; flex: none; justify-content: center; width: calc(var(--tv-h) * 1.29 + 340px); }
+.tv-feed { position: absolute; inset: 0; }
+.runner-picture { position: absolute; inset: 0; z-index: 1; overflow: clip; pointer-events: none; }
+.is-motion.is-runner .tv-viewport { position: relative; z-index: 2; }
+.is-motion.is-runner .tv-exit .tv-screen { background: transparent; }
+.is-motion.is-runner .tv-exit .tv-bay::before { display: none; }
+.tv-exit .tv-screen { background: #090b0c; } /* the top colour of #game, so the copy's edges disappear */
+.tv-exit .tv-screen::before,
+.tv-exit .tv-screen::after { opacity: var(--glass, 1); }
+.tv-link { display: grid; grid-template-columns: auto 300px; column-gap: 40px; align-items: center; min-width: 260px; color: inherit; text-decoration: none; outline-offset: 10px; }
+.tv-bay { position: relative; display: flex; align-items: flex-end; justify-content: center; height: calc(var(--tv-h) * 1.1); }
+.tv-bay::before { content: ''; position: absolute; bottom: 8%; left: 50%; width: 150%; height: 100%; transform: translateX(-50%); background: radial-gradient(closest-side, rgba(200, 255, 53, 0.16), transparent); opacity: 0; pointer-events: none; transition: opacity 0.5s; }
+.tv-set { position: relative; display: block; height: calc(var(--tv-h) * var(--scale, 1)); aspect-ratio: var(--ar); transform: rotate(var(--tilt, 0deg)); transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.tv--console { --scale: 0.9; }
+.tv--portable { --scale: 1.1; }
+.tv--monitor { --scale: 0.84; }
+.tv-frame { position: relative; z-index: 2; width: 100%; height: 100%; filter: drop-shadow(0 16px 18px rgba(0, 0, 0, 0.6)); }
+.tv-screen { position: absolute; z-index: 1; top: calc(var(--sy) - 0.6%); left: calc(var(--sx) - 0.6%); width: calc(var(--sw) + 1.2%); height: calc(var(--sh) + 1.2%); overflow: hidden; background: radial-gradient(ellipse at 35% 30%, #1c2422, #050707 72%); }
+.tv-screen > :is(img, canvas),
+.tv-feed { width: 100%; height: 100%; object-fit: cover; opacity: 0.2; filter: brightness(2.6) saturate(0.3); transform: scaleY(0.012); transition: transform 0.42s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.6s ease, opacity 0.2s; }
+.tv-screen::before,
+.tv-screen::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.tv-screen::before { background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent 36%); }
+.tv-screen::after { background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.22) 0 1px, transparent 1px 3px), radial-gradient(ellipse at 50% 50%, transparent 56%, rgba(0, 0, 0, 0.6)); }
+.tv.is-on .tv-screen > :is(img, canvas),
+.tv-link:hover .tv-screen > :is(img, canvas),
+.tv-link:focus-visible .tv-screen > :is(img, canvas),
+.tv-exit.is-on .tv-feed { opacity: 1; filter: none; transform: none; }
+.tv.is-on .tv-bay::before,
+.tv-exit.is-on .tv-bay::before { opacity: 1; }
+.tv-link:hover .tv-set { transform: rotate(var(--tilt, 0deg)) translateY(-6px); }
+.tv-tag { display: block; width: 0; min-width: 100%; padding-top: 12px; border-top: 1px solid var(--line); opacity: 0.68; transition: opacity 0.4s; }
+.tv.is-on .tv-tag,
+.tv-link:hover .tv-tag { opacity: 1; }
+.tv-tag strong { display: block; font: 800 clamp(22px, 1.9vw, 30px) / 1.1 var(--display); }
+.tv-summary { display: block; margin-top: 8px; font-size: 14px; line-height: 1.6; color: #c8ccc5; }
+.tv-tags { display: block; margin-top: 10px; font: 700 11px / 1.5 var(--mono); letter-spacing: 0.06em; color: var(--steel); }
+.tv-go { display: inline-flex; gap: 6px; margin-top: 12px; font: 700 13px / 1 var(--body); letter-spacing: 0.04em; color: var(--lime); }
+/* 3D Hero (?hero=3d): the TVs stand on the conveyor that printed them, which the hero scene copies into
+   the backdrop canvas. CH 01 came out first, so later channels queue on its left with each description
+   on its upstream side; the belt replaces the shelf and the TVs stand straight. */
+.works-backdrop { display: none; }
+.is-motion.is-hero3d .works-pin { position: relative; z-index: 0; }
+.is-motion.is-hero3d .works-backdrop { position: absolute; inset: 0; z-index: -1; display: block; width: 100%; height: 100%; }
+.is-motion.is-hero3d .tv-track { flex-direction: row-reverse; }
+.is-motion.is-hero3d .tv-track::before { display: none; }
+.is-hero3d:has(.hero-3d.is-failed) .tv-track::before { display: block; } /* no belt backdrop without the scene */
+.is-motion.is-hero3d .tv-link { grid-template-columns: 300px auto; }
+.is-motion.is-hero3d .tv-bay { grid-column: 2; }
+.is-motion.is-hero3d .tv-tag { grid-area: 1 / 1; }
+.is-motion.is-hero3d .tv-set { --tilt: 0deg; }
+/* In the scene the belt hides the frame's shadow below the TV's feet; clip it there too. */
+.is-motion.is-hero3d .tv-frame { clip-path: inset(-80px -80px 0 -80px); }
+/* The belt already says what this is: the title stays for screen readers only, and scrolling and the
+   focusable TVs replace the hint and the remote. The row stands on the viewport's centre line: a
+   0.9 --tv-h TV is centred when the bay bottom sits at 50vh + 0.45 --tv-h. */
+.is-motion.is-hero3d .works-pin { padding-top: 0; }
+.is-motion.is-hero3d .works-remote { display: none; }
+.is-motion.is-hero3d .tv-viewport { align-items: flex-start; margin-top: 0; }
+.is-motion.is-hero3d .tv-track { margin-top: calc(50vh - 20px - var(--tv-h) * 0.65); }
+
+.game { padding: clamp(96px, 14vh, 140px) 0 clamp(72px, 10vh, 110px); background: linear-gradient(#090b0c, #0c0e0f); }
+.game-stage { position: relative; width: min(100% - 2 * var(--pad), 1360px); min-height: 240px; margin: clamp(32px, 5vh, 48px) auto 0; aspect-ratio: 16 / 6.2; overflow: hidden; background: #15181a url('/assets/v3/runner-bg.webp') 0 0 / auto 100% repeat-x; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 1px var(--line); }
+.game-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.game-hit { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; cursor: pointer; touch-action: manipulation; }
+.game-hit:focus-visible { outline-offset: -6px; }
+.game-status { position: absolute; top: 28%; left: 50%; z-index: 3; max-width: 80%; padding: 12px 18px; border: 1px solid var(--line); background: rgba(8, 10, 11, 0.86); font: 700 14px / 1.45 var(--body); text-align: center; pointer-events: none; transform: translate(-50%, -50%); transition: opacity 0.2s; }
+.game-stage.is-running .game-status { opacity: 0; }
+.game-score { position: absolute; top: 14px; right: 20px; z-index: 3; display: flex; align-items: baseline; gap: 10px; font: 700 11px / 1 var(--mono); letter-spacing: 0.16em; color: var(--steel); pointer-events: none; }
+.game-score strong { font: 800 42px / 1 var(--display); letter-spacing: 0; color: var(--chalk); }
+.game-chip { position: absolute; z-index: 3; padding: 8px 11px; background: var(--lime); color: var(--black); font: 700 13px / 1 var(--body); white-space: nowrap; pointer-events: none; animation: chip 1.6s ease-out forwards; }
+@keyframes chip {
+  0% { opacity: 0; transform: translateY(12px); }
+  14% { opacity: 1; transform: none; }
+  78% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-40px); }
+}
+.game-unlocks { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); width: min(100% - 2 * var(--pad), 1360px); margin: 0 auto; padding: 0; border-bottom: 1px solid var(--line); list-style: none; }
+.game-unlocks li { display: flex; align-items: center; gap: 12px; padding: 18px 14px; border-left: 1px solid var(--line); }
+.game-unlocks li:last-child { border-right: 1px solid var(--line); }
+.game-unlocks img { flex: none; width: 44px; height: 44px; object-fit: contain; filter: grayscale(1) brightness(0.55); transition: filter 0.4s; }
+.game-unlocks span { display: block; font: 700 10px / 1.4 var(--mono); letter-spacing: 0.1em; color: var(--steel); }
+.game-unlocks strong { display: block; margin-top: 4px; font-size: 14px; line-height: 1.35; color: var(--steel); transition: color 0.4s; }
+.game-unlocks li.is-unlocked img { filter: none; }
+.game-unlocks li.is-unlocked strong { color: var(--lime); }
+.game.is-complete .game-unlocks { border-bottom-color: var(--lime); }
+.game-unlocks small { display: none; }
+/* ?game=runner (skate-runner.js): scroll drives the run, so there are no play controls. In motion the
+   pinned wrapper is the viewport from the section top where the works push hands over: the scene fills
+   it edge to edge; the unlocks stay for screen readers only (each automation has a street ad and a card).
+   Static reading lists the unlocks with their details. */
+.is-runner .game-hit,
+.is-runner .game-status,
+.is-runner .game-score,
+.is-runner .only-game { display: none; }
+.is-runner:not(.is-motion) .game-stage { display: none; }
+.is-runner .game-unlocks { grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.is-runner .game-unlocks li { align-items: flex-start; }
+.is-runner .game-unlocks li:nth-child(3n) { border-right: 1px solid var(--line); }
+.is-runner .game-unlocks li:nth-child(n + 4) { border-top: 1px solid var(--line); }
+.is-runner .game-unlocks small { display: block; margin-top: 8px; font-size: 13px; line-height: 1.6; color: var(--chalk); }
+/* The card of the ad the camera rests on: skate-runner.js fills it from the unlock, places it beside the
+   screen and wipes it open from that side. */
+.runner-ad { position: absolute; top: 0; left: 0; z-index: 3; display: flex; align-items: flex-start; gap: 14px; width: min(380px, 30vw); padding: 16px 18px 18px; border: 1px solid var(--line); border-top: 2px solid var(--lime); background: var(--surface-soft); backdrop-filter: blur(8px); visibility: hidden; opacity: 0; pointer-events: none; }
+.runner-ad::before { content: ''; position: absolute; top: 34px; right: 100%; width: 28px; height: 1px; background: var(--lime); }
+.runner-ad.is-left::before { right: auto; left: 100%; }
+.runner-ad img { flex: none; width: 56px; height: 56px; object-fit: contain; }
+.runner-ad p { margin: 0; }
+.runner-ad span { display: block; font: 700 11px / 1.4 var(--mono); letter-spacing: 0.1em; color: var(--steel); text-decoration: line-through; }
+.runner-ad strong { display: block; margin-top: 4px; font: 700 20px / 1.3 var(--body); color: var(--lime); }
+.runner-ad small { display: block; margin-top: 8px; font-size: 14px; line-height: 1.6; color: var(--chalk); }
+.is-runner.is-motion .game { padding: 0; }
+.is-runner.is-motion .game-pin { position: relative; height: 100vh; }
+.is-runner.is-motion .game-stage { position: absolute; inset: 0; width: auto; min-height: 0; margin: 0; aspect-ratio: auto; box-shadow: none; background: #080a0b; }
+.runner-loading { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; background: #080a0b; }
+.runner-loading .loading-gears { width: min(250px, 30vw); }
+.runner-loading [data-gear] { transform-box: fill-box; transform-origin: center; animation: runner-gear 8s linear infinite; }
+.runner-loading [data-gear="20"] { animation-duration: 5.333333s; animation-direction: reverse; }
+.runner-loading [data-gear="16"] { animation-duration: 4.266667s; animation-direction: reverse; }
+.is-runner-ready .runner-loading { display: none; }
+.game-stage:not(.is-runner-ready):has(.runner-loading) > canvas { visibility: hidden; }
+@keyframes runner-gear { to { rotate: 360deg; } }
+/* The edges fade to the transition TV's screen colour, so during the push the copy has no hard frame. */
+.is-runner.is-motion .game-stage::after,
+#experience.is-space-handoff [data-space-pin]::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 14vmin 4vmin #090b0c; pointer-events: none; }
+/* Warm paper grain multiplied over the scene. */
+.is-runner.is-motion .game-stage::before,
+#experience.is-space-handoff [data-space-pin]::before { content: ''; position: absolute; inset: 0; z-index: 1; mix-blend-mode: multiply; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='0.35' intercept='0.72'/%3E%3CfeFuncG type='linear' slope='0.35' intercept='0.7'/%3E%3CfeFuncB type='linear' slope='0.35' intercept='0.64'/%3E%3CfeFuncA type='linear' slope='0' intercept='1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E"); }
+
+.route { padding: clamp(96px, 14vh, 140px) 0 clamp(80px, 12vh, 140px); background: linear-gradient(rgba(9, 11, 12, 0.8), rgba(9, 11, 12, 0.92)), url('/assets/v3/floor-concrete.webp') center / auto 720px; }
+.route [data-space-pin] { position: relative; }
+.route [data-space-canvas],
+.route [data-paper-canvas],
+.career-nav { display: none; }
+.route-track { position: relative; width: min(100%, 960px); margin: clamp(40px, 7vh, 72px) auto 0; padding: 0 var(--pad); }
+.route-stops { position: relative; display: grid; gap: 48px; padding: 0 0 0 32px; border-left: 1px solid var(--line); list-style: none; }
+.stop { position: relative; min-width: 0; }
+.stop-pin { position: absolute; top: 6px; left: -38px; width: 11px; height: 11px; border: 2px solid var(--orange); border-radius: 50%; background: var(--black); }
+.stop-kicker { font: 700 12px / 1.6 var(--mono); letter-spacing: 0.06em; color: var(--orange); }
+.stop h3 { margin-top: 10px; font: 800 clamp(26px, 2.5vw, 40px) / 1.1 var(--display); overflow-wrap: anywhere; }
+.stop-org { margin-top: 8px; font-weight: 700; color: var(--chalk); }
+.stop ul { margin-top: 16px; padding-left: 1.1em; color: var(--chalk); }
+.stop li + li { margin-top: 6px; }
+
+
+#experience.is-space-handoff [data-space-pin]::before,
+#experience.is-space-handoff [data-space-pin]::after { z-index: 1; opacity: var(--street-mix, 0); }
+
+/* Motion owns the pinned stage; static reading and load failure show every stop. */
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  #experience.is-space { position: relative; z-index: 3; padding: 0; background: none; }
+  #experience.is-space.is-space-handoff { margin-top: -100vh; }
+  #experience.is-space [data-space-pin] { height: 100vh; overflow: clip; isolation: isolate; background: #000; }
+  #experience.is-space .career-street { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
+  #experience.is-space [data-space-canvas] { position: absolute; inset: 0; z-index: 0; display: block; width: 100%; height: 100%; pointer-events: none; }
+  #experience.is-space [data-paper-canvas] { position: absolute; top: 0; left: 0; z-index: 1; display: block; cursor: pointer; }
+  /* The phone drops out behind the rocket sticker: same layer, earlier in the pin (career-journey.js). */
+  #experience.is-space [data-phone] { position: absolute; top: 0; left: 0; z-index: 1; visibility: hidden; }
+  /* A running head: the section title sits small on a hairline that spans the measure. */
+  #experience.is-space .section-head { position: absolute; top: 84px; left: 0; z-index: 2; flex-wrap: nowrap; align-items: center; gap: 20px; width: 100%; margin: 0; }
+  #experience.is-space .section-head::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  #experience.is-space .section-head h2 { font-size: clamp(22px, 1.7vw, 30px); }
+  /* One magazine spread per stop: a masthead standing on a rule at 46vh, the employer left of the sticker at the
+     centre and the evidence right of it. --gutter is half the gap that clears the sticker and the globe's shoulders. */
+  #experience.is-space .route-track { position: absolute; inset: 0; z-index: 2; width: auto; margin: 0; padding: 0; pointer-events: none; }
+  #experience.is-space .route-stops { display: block; height: 100%; padding: 0; border: 0; }
+  #experience.is-space .stop { --top: clamp(124px, 15vh, 160px); --mast: calc(46vh - var(--top)); --gutter: min(27vh, 15vw); position: absolute; inset: 0; display: grid; grid-template: "head head" var(--row, var(--mast)) "org date" auto "org body" minmax(0, 1fr) / minmax(0, 1fr) minmax(0, 1fr); column-gap: calc(var(--gutter) * 2); padding: var(--top) var(--pad) 0; visibility: hidden; font-size: clamp(15px, 1.05vw, 18px); line-height: 1.6; }
+  #experience.is-space .stop.is-current { visibility: visible; }
+  /* Move only the spread up to the 70px header edge, preserving its type size and the scene below it. */
+  #experience.is-space .stop { translate: 0 calc(70px - var(--top)); }
+  /* The spread covers the stage: only its type takes the pointer, so the sticker under it stays clickable. */
+  #experience.is-space .stop.is-current > * { pointer-events: auto; }
+  #experience.is-space .stop-pin { display: none; }
+  /* The masthead fills its row; career-journey.js then shrinks it until the widest line fits the measure. */
+  #experience.is-space .stop h3 { --lines: 1; --leading: 1.08; --rule: 1; position: relative; grid-area: head; align-self: start; margin: 0; padding-bottom: 0.08em; font-size: calc(var(--mast) / (var(--lines) * var(--leading) + 0.08)); line-height: var(--leading); font-kerning: none; white-space: nowrap; }
+  #experience.is-space .stop h3:has(span + span) { --lines: 2; }
+  #experience.is-space .stop h3:lang(en) { --leading: 0.86; text-transform: uppercase; }
+  #experience.is-space .stop h3::after { content: ''; position: absolute; inset: auto 0 0; height: 1px; background: var(--chalk); opacity: 0.55; transform: scaleX(var(--rule)); transform-origin: 0 50%; }
+  /* Each line is the mask its letters drop through; two lines stagger to opposite margins. */
+  #experience.is-space .stop h3 > span { display: block; width: max-content; overflow: clip; }
+  #experience.is-space .stop h3 > span + span { margin-left: auto; }
+  #experience.is-space .stop-org { grid-area: org; align-self: start; max-width: 9em; margin-top: 3vh; font: 700 clamp(24px, min(3.2vw, 5.6vh), 60px) / 1.18 var(--serif); word-break: keep-all; }
+  #experience.is-space .stop-kicker { grid-area: date; margin-top: 3vh; padding-bottom: 1.4vh; font-size: clamp(12px, 1vw, 19px); }
+  #experience.is-space .stop ul { grid-area: body; align-self: start; max-width: 36em; max-height: calc(100% - 24px); margin: 0; padding: 0; overflow-y: auto; scrollbar-width: thin; }
+  #experience.is-space .stop li { display: block; margin: 0; padding: 0.7em 0; border-top: 1px solid var(--line); text-wrap: pretty; }
+  #experience.is-space .stop li:last-child { padding-bottom: 0; }
+  /* An upward route arrow: the first stop sits at the bottom, the arrowhead tops the rail. */
+  #experience.is-space .career-nav { position: absolute; bottom: clamp(24px, 5vh, 56px); left: var(--pad); z-index: 2; display: flex; flex-direction: column-reverse; gap: clamp(8px, 2.4vh, 22px); padding-top: 26px; }
+  #experience.is-space .career-nav::before { content: ''; position: absolute; top: 4px; bottom: 36px; left: 4px; width: 1px; background: var(--steel); opacity: 0.5; }
+  #experience.is-space .career-nav::after { content: ''; position: absolute; top: 4px; left: -1px; width: 11px; height: 11px; border-top: 1px solid var(--steel); border-left: 1px solid var(--steel); transform: rotate(45deg); }
+  #experience.is-space .career-nav button { position: relative; min-height: 44px; padding: 0 6px 0 24px; border: 0; background: none; color: var(--steel); font: 700 13px / 1.4 var(--body); text-align: left; cursor: pointer; }
+  #experience.is-space .career-nav button::before { content: ''; position: absolute; top: 4px; left: 0; width: 9px; height: 9px; border: 1px solid var(--steel); border-radius: 50%; background: var(--black); }
+  #experience.is-space .career-nav button:hover,
+  #experience.is-space .career-nav button:focus-visible { color: var(--chalk); }
+  #experience.is-space .career-nav button[aria-current="step"] { color: var(--lime); }
+  #experience.is-space .career-nav button[aria-current="step"]::before { border-color: var(--lime); background: var(--lime); }
+  #experience.is-space .career-nav small { display: block; margin-top: 4px; font: 700 11px / 1.4 var(--mono); letter-spacing: 0.02em; }
+}
+
+@media (min-width: 768px) and (max-height: 650px) and (prefers-reduced-motion: no-preference) {
+  #experience.is-space .section-head { top: 70px; }
+  #experience.is-space .section-head h2 { font-size: 22px; }
+  #experience.is-space .stop { --top: 104px; font-size: 14px; line-height: 1.5; }
+  #experience.is-space .stop li { padding: 0.4em 0; }
+}
+
+/* A tall stage has its room above the sticker: the columns follow the masthead and only clear the sticker. */
+@media (min-width: 768px) and (max-aspect-ratio: 1/1) and (prefers-reduced-motion: no-preference) {
+  #experience.is-space .stop { --row: auto; --mast: 26vh; --gutter: 10vh; }
+}
+
+.contact { position: relative; display: grid; place-items: center; min-height: 100vh; padding: 140px var(--pad) 96px; overflow: hidden; background: radial-gradient(ellipse 46% 60% at 50% 52%, rgba(255, 214, 160, 0.16), transparent 70%), linear-gradient(rgba(8, 10, 11, 0.45), rgba(8, 10, 11, 0.86)), url('/assets/v3/floor-concrete.webp') center / auto 900px; }
+/* Motion borrows the phone into the experience pin (career-journey.js); the emptied section takes no room. */
+.contact:not(:has([data-phone])) { min-height: 0; padding: 0; }
+/* The footer then lies over the bottom of the last pinned frame, so the page ends with the phone still centred. */
+main:has([data-space-pin] > [data-phone]) + .footer { position: relative; z-index: 4; box-sizing: border-box; height: 72px; margin-top: -72px; }
+.phone { position: relative; width: min(330px, 76vw); aspect-ratio: 9 / 19.2; padding: 11px; border-radius: 54px; background: linear-gradient(150deg, #5b6063, #1b1e20 24%, #2c3134 60%, #0f1112); box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.18), inset 0 0 0 5px #0a0c0d, 18px 34px 46px rgba(0, 0, 0, 0.55), 6px 10px 14px rgba(0, 0, 0, 0.4); transform: rotate(-7deg); }
+.phone-screen { position: relative; display: flex; flex-direction: column; height: 100%; padding: 16px 14px 14px; overflow: hidden; border-radius: 44px; background: radial-gradient(circle at 18% 12%, rgba(200, 255, 53, 0.2), transparent 42%), radial-gradient(circle at 92% 78%, rgba(255, 59, 157, 0.22), transparent 48%), radial-gradient(circle at 40% 100%, rgba(83, 168, 255, 0.16), transparent 45%), #0b0e0f; }
+.phone-screen::before { content: ''; position: absolute; top: 11px; left: 50%; width: 92px; height: 27px; margin-left: -46px; border-radius: 16px; background: #000; }
+.phone-status { display: flex; align-items: center; justify-content: space-between; padding: 4px 12px 0 16px; font: 700 13px / 1 var(--body); }
+.phone-icons { display: flex; align-items: flex-end; gap: 2px; }
+.phone-icons i { width: 3px; border-radius: 1px; background: var(--chalk); }
+.phone-icons i:nth-child(1) { height: 5px; }
+.phone-icons i:nth-child(2) { height: 8px; }
+.phone-icons i:nth-child(3) { height: 11px; }
+.phone-icons b { width: 22px; height: 11px; margin-left: 6px; padding: 1.5px; border: 1.5px solid rgba(242, 243, 238, 0.8); border-radius: 3px; background: linear-gradient(90deg, var(--chalk) 72%, transparent 72%) content-box; }
+.phone-date { margin-top: 48px; font: 600 15px / 1.2 var(--body); color: rgba(242, 243, 238, 0.82); text-align: center; }
+.phone-clock { font: 700 clamp(60px, 7vw, 80px) / 1 var(--display); text-align: center; }
+.phone-notice { display: flex; align-items: flex-start; gap: 10px; margin-top: 22px; padding: 12px; border-radius: 22px; background: rgba(36, 40, 42, 0.8); box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35); backdrop-filter: blur(14px); }
+.phone-notice img { flex: none; width: 38px; height: 38px; border-radius: 10px; background: var(--chalk); }
+.phone-notice strong { display: block; font-size: 13px; line-height: 1.3; }
+.phone-notice span { display: block; font-size: 12.5px; line-height: 1.45; color: rgba(242, 243, 238, 0.86); }
+.phone-apps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; margin: auto 0 0; padding: 12px 8px 10px; border-radius: 30px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(16px); list-style: none; }
+.phone-apps a { display: grid; justify-items: center; gap: 6px; font: 600 10px / 1 var(--body); color: var(--chalk); text-decoration: none; }
+.app-icon { display: block; width: 100%; max-width: 46px; height: auto; aspect-ratio: 1; border-radius: 12px; transition: transform 0.2s; }
+.app-folio { overflow: hidden; background: var(--chalk); }
+.app-folio img { width: 100%; height: 100%; }
+.phone-apps a:hover .app-icon,
+.phone-apps a:focus-visible .app-icon { transform: translateY(-4px); }
+
+.footer { display: flex; justify-content: space-between; gap: 16px; padding: 28px var(--pad); border-top: 1px solid var(--line); font: 700 11px / 1.4 var(--mono); letter-spacing: 0.12em; color: var(--steel); }
+.footer a { text-decoration: none; }
+
+@media (max-width: 1100px) {
+  .bar-mark small { display: none; }
+  .kicker { display: block; }
+}
+
+@media (max-width: 767px) {
+  .bar { gap: 12px; }
+  .bar-nav { display: none; }
+  .bar-cta { height: 40px; margin-left: auto; padding: 0 16px; }
+  .hero-about { grid-template-columns: 1fr; }
+  .lazy { font-size: min(68.4px, calc((100vw - 2 * var(--pad)) / 6)); }
+  .about-dog { max-height: 380px; }
+  .tv-track { --tv-h: 210px; padding-inline: max(var(--pad), calc(50vw - 140px)); }
+  .tv-link { grid-template-columns: auto; }
+  .tv-tag { margin-top: 36px; }
+  .game-stage { aspect-ratio: 3 / 2; }
+  .game-unlocks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .game-unlocks li { border-top: 1px solid var(--line); }
+  .game-unlocks li:nth-child(2n) { border-right: 1px solid var(--line); }
+  .is-runner .game-unlocks { grid-template-columns: minmax(0, 1fr); }
+  .is-runner .game-unlocks li { border-right: 1px solid var(--line); }
+  .contact { min-height: 0; }
+  .phone { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}

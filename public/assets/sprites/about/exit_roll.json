@@ -1,0 +1,299 @@
+{
+  "id": "exit_roll",
+  "sheetPath": "/assets/sprites/about/exit_roll.png",
+  "frameCount": 12,
+  "cell": {
+    "width": 128,
+    "height": 128
+  },
+  "columns": 6,
+  "rows": 2,
+  "canvas": {
+    "width": 768,
+    "height": 256
+  },
+  "fps": 12,
+  "anchor": {
+    "x": 64,
+    "y": 120
+  },
+  "groundBaselineY": 112,
+  "loop": false,
+  "holdLastFrame": true,
+  "transparent": true,
+  "rowMajor": true,
+  "antialiasFringePixels": 0,
+  "paletteSize": 31,
+  "canonicalReferenceSha256": "188165f0f8ac70b66856b23ace56103f34a4f4c7024f4da7be4d605d7a7313c1",
+  "groundedKeyframes": [
+    0,
+    1
+  ],
+  "sha256": "8a135caec5e8ec4ef35f4615b0a8bcbd6e756da1c2f1fcad89da569564804a4f",
+  "frames": [
+    {
+      "index": 0,
+      "alphaBbox": {
+        "x": 31,
+        "y": 20,
+        "width": 66,
+        "height": 93
+      },
+      "boardOrientation": "side_on_unforeshortened",
+      "wheelVisibility": "both",
+      "wheelbaseApplicable": true,
+      "wheelCenters": {
+        "front": [
+          86,
+          109
+        ],
+        "rear": [
+          50,
+          109
+        ]
+      }
+    },
+    {
+      "index": 1,
+      "alphaBbox": {
+        "x": 32,
+        "y": 20,
+        "width": 65,
+        "height": 93
+      },
+      "boardOrientation": "side_on_unforeshortened",
+      "wheelVisibility": "both",
+      "wheelbaseApplicable": true,
+      "wheelCenters": {
+        "front": [
+          86,
+          109
+        ],
+        "rear": [
+          50,
+          109
+        ]
+      }
+    },
+    {
+      "index": 2,
+      "alphaBbox": {
+        "x": 30,
+        "y": 23,
+        "width": 67,
+        "height": 90
+      },
+      "boardOrientation": "side_on_unforeshortened",
+      "wheelVisibility": "both",
+      "wheelbaseApplicable": true,
+      "wheelCenters": {
+        "front": [
+          84,
+          109
+        ],
+        "rear": [
+          47,
+          109
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "alphaBbox": {
+        "x": 29,
+        "y": 24,
+        "width": 70,
+        "height": 89
+      },
+      "boardOrientation": "side_on_unforeshortened",
+      "wheelVisibility": "both",
+      "wheelbaseApplicable": true,
+      "wheelCenters": {
+        "front": [
+          84,
+          109
+        ],
+        "rear": [
+          49,
+          109
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "alphaBbox": {
+        "x": 28,
+        "y": 24,
+        "width": 72,
+        "height": 89
+      },
+      "boardOrientation": "side_on_unforeshortened",
+      "wheelVisibility": "both",
+      "wheelbaseApplicable": true,
+      "wheelCenters": {
+        "front": [
+          86,
+          109
+        ],
+        "rear": [
+          50,
+          109
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "alphaBbox": {
+        "x": 30,
+        "y": 25,
+        "width": 69,
+        "height": 88
+      },
+      "boardOrientation": "side_on_unforeshortened",
+      "wheelVisibility": "both",
+      "wheelbaseApplicable": true,
+      "wheelCenters": {
+        "front": [
+          88,
+          109
+        ],
+        "rear": [
+          52,
+          109
+        ]
+      }
+    },
+    {
+      "index": 6,
+      "alphaBbox": {
+        "x": 29,
+        "y": 26,
+        "width": 70,
+        "height": 87
+      },
+      "boardOrientation": "side_on_unforeshortened",
+      "wheelVisibility": "both",
+      "wheelbaseApplicable": true,
+      "wheelCenters": {
+        "front": [
+          86,
+          109
+        ],
+        "rear": [
+          49,
+          109
+        ]
+      }
+    },
+    {
+      "index": 7,
+      "alphaBbox": {
+        "x": 28,
+        "y": 27,
+        "width": 72,
+        "height": 86
+      },
+      "boardOrientation": "side_on_unforeshortened",
+      "wheelVisibility": "both",
+      "wheelbaseApplicable": true,
+      "wheelCenters": {
+        "front": [
+          86,
+          109
+        ],
+        "rear": [
+          50,
+          109
+        ]
+      }
+    },
+    {
+      "index": 8,
+      "alphaBbox": {
+        "x": 25,
+        "y": 30,
+        "width": 77,
+        "height": 83
+      },
+      "boardOrientation": "side_on_unforeshortened",
+      "wheelVisibility": "both",
+      "wheelbaseApplicable": true,
+      "wheelCenters": {
+        "front": [
+          90,
+          109
+        ],
+        "rear": [
+          54,
+          109
+        ]
+      }
+    },
+    {
+      "index": 9,
+      "alphaBbox": {
+        "x": 27,
+        "y": 31,
+        "width": 75,
+        "height": 82
+      },
+      "boardOrientation": "side_on_unforeshortened",
+      "wheelVisibility": "both",
+      "wheelbaseApplicable": true,
+      "wheelCenters": {
+        "front": [
+          85,
+          109
+        ],
+        "rear": [
+          49,
+          109
+        ]
+      }
+    },
+    {
+      "index": 10,
+      "alphaBbox": {
+        "x": 25,
+        "y": 34,
+        "width": 77,
+        "height": 79
+      },
+      "boardOrientation": "side_on_unforeshortened",
+      "wheelVisibility": "both",
+      "wheelbaseApplicable": true,
+      "wheelCenters": {
+        "front": [
+          86,
+          109
+        ],
+        "rear": [
+          50,
+          109
+        ]
+      }
+    },
+    {
+      "index": 11,
+      "alphaBbox": {
+        "x": 28,
+        "y": 34,
+        "width": 72,
+        "height": 79
+      },
+      "boardOrientation": "side_on_unforeshortened",
+      "wheelVisibility": "both",
+      "wheelbaseApplicable": true,
+      "wheelCenters": {
+        "front": [
+          88,
+          109
+        ],
+        "rear": [
+          50,
+          109
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "title": "社群自動化內容工廠",
+  "summary": "從熱門文章分析、AI 圖文生成到發布與帳號數據回收，把內容營運串成一條工作流。",
+  "tags": [
+    "n8n",
+    "LLM",
+    "Threads API",
+    "Google Sheets"
+  ],
+  "href": "https://brave-cricket-1e4.notion.site/AI-23f6e83c928880d0b45ff6db26679604",
+  "linkLabel": "看完整作品集",
+  "frame": "monitor"
+}

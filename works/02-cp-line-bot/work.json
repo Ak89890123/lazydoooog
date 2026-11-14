@@ -1,0 +1,12 @@
+{
+  "title": "中泰雙語調度機器人",
+  "summary": "台籍與泰籍同仁直接在 LINE 協作：車輛進廠通知自動轉成中泰雙語，泰文請假訊息自動翻成中文，關鍵字訊息跨群組轉達。",
+  "tags": [
+    "n8n",
+    "LINE Messaging API",
+    "Gemini"
+  ],
+  "href": "https://brave-cricket-1e4.notion.site/AI-23f6e83c928880d0b45ff6db26679604",
+  "linkLabel": "看完整作品集",
+  "frame": "portable"
+}

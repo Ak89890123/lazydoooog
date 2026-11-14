@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="陳鉦宗 — AI Workflow Automation Engineer 互動履歷" />
+    <meta name="theme-color" content="#080a0b" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23c8ff35'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial' font-size='30' font-weight='700' fill='%23080a0b'%3ECC%3C/text%3E%3C/svg%3E" />
+    <title>陳鉦宗｜AI Workflow Automation Engineer</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#hero">跳到履歷內容</a>
+    <div id="app"></div>
+    <script type="module">
+      if (window.location.protocol === "file:") {
+        document.querySelector(".skip-link")?.remove();
+        document.body.style.margin = "0";
+        document.body.style.background = "#080a0b";
+        document.body.style.color = "#f3f1e8";
+        document.body.style.fontFamily = "Inter, ui-sans-serif, system-ui, sans-serif";
+
+        document.querySelector("#app").innerHTML = `
+          <main style="min-height:100vh;display:grid;place-items:center;padding:24px;box-sizing:border-box">
+            <section style="width:min(680px,100%);border:1px solid #343a38;background:#111514;padding:clamp(28px,6vw,56px);box-sizing:border-box;box-shadow:12px 12px 0 #c8ff35">
+              <p style="margin:0 0 18px;color:#c8ff35;font:700 12px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.16em;text-transform:uppercase">Local preview</p>
+              <h1 style="margin:0 0 20px;font-size:clamp(32px,7vw,64px);line-height:.98;letter-spacing:-.045em">履歷網站需要先啟動</h1>
+              <p style="margin:0 0 28px;color:#b8bfbb;font-size:clamp(16px,2.4vw,19px);line-height:1.65">這是 Vite 互動網站，不能直接用 <code style="color:#ff7b45">file://</code> 開啟。請回到專案資料夾，雙擊 <strong style="color:#f3f1e8">open-resume.cmd</strong>。</p>
+              <a href="http://127.0.0.1:5173/" style="display:inline-block;background:#c8ff35;color:#080a0b;padding:14px 18px;font-weight:800;text-decoration:none">伺服器已啟動？開啟履歷 →</a>
+              <p style="margin:24px 0 0;color:#747d78;font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace">或在 PowerShell 執行：npm run dev</p>
+            </section>
+          </main>`;
+      } else {
+        await import("/src/studio.js");
+      }
+    </script>
+  </body>
+</html>

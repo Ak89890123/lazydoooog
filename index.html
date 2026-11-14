@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="LazyDoooog — AI Workflow Automation Engineer。把重複工作變成可維護、可交付的自動化系統。" />
+    <meta name="theme-color" content="#080a0b" />
+    <link rel="icon" href="/assets/v3/dog-face.webp" />
+    <title>LazyDoooog｜AI Workflow Automation Engineer</title>
+    <style>
+      html { background: #080a0b; color: #f2f3ee; }
+      #site-loading { display: none; }
+      .is-loading { overflow: hidden; }
+      .is-loading body > :not(#site-loading) { visibility: hidden; }
+      .is-loading #site-loading {
+        display: grid; place-content: center; gap: 16px; position: fixed;
+        inset: 0; z-index: 9999; margin: 0; background: #080a0b;
+        color: #f2f3ee; font: 16px/1.7 'Segoe UI', sans-serif; text-align: center;
+      }
+      .loading-gears { width: min(250px, 66vw); height: auto; margin: auto; overflow: visible; }
+      .loading-gears path { stroke: #080a0b; stroke-width: 0.7; stroke-linejoin: round; }
+      .loading-gears circle { fill: #080a0b; stroke: #a4aaa5; stroke-width: 1.5; }
+      #site-loading p { margin: 0; }
+      #site-loading button { color: #080a0b; background: #c8ff35; border: 0; padding: 12px 24px; font: inherit; cursor: pointer; }
+    </style>
+    <script>
+      document.documentElement.classList.add('is-loading', 'is-hero3d', 'is-runner');
+      if (!/[?&]motion=off\b/.test(location.search) && matchMedia('(min-width: 768px) and (prefers-reduced-motion: no-preference)').matches) {
+        document.documentElement.classList.add('is-motion');
+      }
+      if (/[?&]hero=3d\b/.test(location.search)) document.documentElement.classList.add('is-hero3d');
+      if (/[?&]game=runner\b/.test(location.search)) document.documentElement.classList.add('is-runner');
+    </script>
+    <link rel="stylesheet" href="/src/v3/v3.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Noto+Sans+TC:wght@400;500;700;900&amp;family=Noto+Serif+TC:wght@700&amp;display=swap" media="print" onload="this.media='all'" />
+  </head>
+  <body>
+    <div id="site-loading" role="status" aria-live="polite">
+      <svg class="loading-gears" viewBox="0 0 250 240" aria-hidden="true">
+        <g transform="translate(92 99)"><g data-gear="30"><path fill="#c8ff35" /><circle r="9" /></g></g>
+        <g transform="translate(192 99)"><g data-gear="20"><path fill="#a4aaa5" /><circle r="7" /></g></g>
+        <g transform="translate(92 191)"><g data-gear="16"><path fill="#f2f3ee" /><circle r="6" /></g></g>
+      </svg>
+      <p data-loading-status>載入互動作品集…</p>
+      <button type="button" data-loading-continue hidden>繼續瀏覽</button>
+    </div>
+    <script>
+      // Involute teeth share a module and pressure angle, so their pitch circles mesh.
+      for (const gear of document.querySelectorAll('[data-gear]')) {
+        const teeth = Number(gear.dataset.gear), module = 4, pitch = teeth * module / 2;
+        const base = pitch * Math.cos(Math.PI / 9), root = pitch - 1.25 * module, tip = pitch + module;
+        const involute = (r) => { const a = Math.acos(base / r); return Math.tan(a) - a; };
+        const half = Math.PI / (2 * teeth) + involute(pitch);
+        const points = [];
+        const point = (r, angle) => points.push(`${(r * Math.cos(angle)).toFixed(3)},${(r * Math.sin(angle)).toFixed(3)}`);
+        for (let i = 0; i < teeth; i++) {
+          const center = i * 2 * Math.PI / teeth;
+          point(root, center - half);
+          for (let j = 0; j <= 8; j++) {
+            const r = base + (tip - base) * j / 8;
+            point(r, center - half + involute(r));
+          }
+          for (let j = 8; j >= 0; j--) {
+            const r = base + (tip - base) * j / 8;
+            point(r, center + half - involute(r));
+          }
+          point(root, center + half);
+        }
+        gear.querySelector('path').setAttribute('d', `M${points.join('L')}Z`);
+      }
+      document.querySelector('[data-gear="20"]').setAttribute('transform', 'rotate(171)');
+      document.querySelector('[data-gear="16"]').setAttribute('transform', 'rotate(90)');
+    </script>
+    <a class="skip-link" href="#works">跳到作品</a>
+    <header class="bar">
+      <a class="bar-mark" href="#hero" aria-label="LazyDoooog，回到頁首">
+        <img src="/assets/v3/dog-face.webp" alt="" width="160" height="160" />
+        <span><strong>LazyDoooog</strong><small>AI Workflow Automation Engineer</small></span>
+      </a>
+      <nav class="bar-nav" aria-label="頁面區段">
+        <a href="#works" data-nav="works">作品</a>
+        <a href="#game" data-nav="game">遊戲</a>
+        <a href="#experience" data-nav="experience">經歷</a>
+        <a href="#contact" data-nav="contact">聯絡</a>
+      </nav>
+      <a class="button button--primary bar-cta" href="mailto:a89890123@gmail.com">寄信給我</a>
+      <span class="bar-progress" aria-hidden="true"><i data-progress></i></span>
+    </header>
+
+    <main id="app">
+      <section id="hero" class="hero" aria-labelledby="hero-title">
+        <div class="hero-stage" data-hero-stage>
+          <div class="hero-intro" data-hero-intro>
+            <p class="kicker">AI Workflow Automation Engineer</p>
+            <h1 id="hero-title" aria-label="重複的工作，交給 Agentic Flow">重複的工作<span>交給Agentic Flow</span></h1>
+          </div>
+          <figure class="hero-film" data-hero-film aria-hidden="true">
+            <img class="hero-poster" src="/assets/v3/hero-dog.webp" alt="" width="1280" height="720" fetchpriority="high" />
+            <video data-hero-video muted playsinline preload="none" poster="/assets/posters/hero-title-scroll-v2.jpg">
+              <source data-src="/assets/videos/hero-title-scroll-v2-48fps-delivery.mp4" type="video/mp4" />
+              <source data-src="/assets/videos/hero-title-scroll-v2-24fps-delivery.mp4" type="video/mp4" />
+            </video>
+          </figure>
+          <div class="hero-paper" data-hero-paper aria-hidden="true"><canvas></canvas></div>
+          <div class="hero-3d" data-hero-3d aria-hidden="true"></div>
+          <div class="hero-about" data-hero-about>
+            <div class="about-copy">
+              <h2 class="lazy" aria-label="Learn, Automate, Zero busywork, Your time"><span><b>L</b><span>earn</span></span><span><b>A</b><span>utomate</span></span><span><b>Z</b><span>ero busywork</span></span><span><b>Y</b><span>our time</span></span></h2>
+            </div>
+            <img class="about-dog" src="/assets/v3/dog-leaning.webp" alt="Lazydoooog 靠著滑板" width="574" height="900" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </section>
+
+      <section id="works" class="works" aria-labelledby="works-title">
+        <div class="works-pin" data-works-pin>
+          <canvas class="works-backdrop" data-works-backdrop aria-hidden="true"></canvas>
+          <div class="section-head">
+            <div>
+              <h2 id="works-title">作品頻道</h2>
+              <p><span class="only-motion">往下捲動轉台，</span><span class="only-static">左右滑動轉台，</span>點電視開啟作品。</p>
+            </div>
+            <div class="works-remote">
+              <button class="remote-btn" type="button" data-channel-prev aria-label="上一台">‹</button>
+              <p class="works-channel" data-channel>CH 01</p>
+              <button class="remote-btn" type="button" data-channel-next aria-label="下一台">›</button>
+            </div>
+          </div>
+          <div class="tv-viewport" data-tv-viewport>
+            <ul class="tv-track" data-tv-wall></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="game" class="game" aria-labelledby="game-title">
+        <div class="game-pin" data-game-pin>
+          <div class="section-head">
+            <div>
+              <h2 id="game-title">跳過重複工作</h2>
+              <p><span class="only-game">點畫面或按空白鍵起跳。</span>每跳過一種，就解鎖一個我做過的自動化。</p>
+            </div>
+          </div>
+          <div class="game-stage" data-game>
+            <canvas aria-hidden="true"></canvas>
+            <aside class="runner-ad" data-runner-ad aria-hidden="true"></aside>
+            <button class="game-hit" type="button" data-game-hit><span class="sr-only">滑板遊戲：開始或起跳</span></button>
+            <p class="game-status" data-game-status role="status">點擊開始</p>
+            <p class="game-score" aria-hidden="true">跳過<strong data-game-score>0</strong></p>
+          </div>
+          <ol class="game-unlocks" aria-label="跳過重複工作後解鎖的自動化">
+            <li data-unlock="paper"><img src="/assets/v3/obstacles/paper.webp" alt="" loading="lazy" /><p><span>一疊週報</span><strong>SEO 報告自動產出</strong><small>以 AI 擷取文章關鍵字並查詢排名，透過資料爬取與 API 串接產生結構化報告。</small></p></li>
+            <li data-unlock="box"><img src="/assets/v3/obstacles/box.webp" alt="" loading="lazy" /><p><span>待上架商品</span><strong>AI 補齊商品資料</strong><small>在 Google Sheets 選單觸發 n8n：輸入商品原名與成本，由 LLM 推算訂價、重量、運費與商品元素，並產生商品命名。</small></p></li>
+            <li data-unlock="inbox"><img src="/assets/v3/obstacles/inbox.webp" alt="" loading="lazy" /><p><span>待寄開發信</span><strong>HTML 開發信自動寄送</strong><small>以 n8n 與 LLM 產生 HTML 開發信並自動寄送；收件人開信會回傳訊號，供後續紀錄與客戶跟進。</small></p></li>
+            <li data-unlock="cone"><img src="/assets/v3/obstacles/cone.webp" alt="" loading="lazy" /><p><span>車輛進廠</span><strong>中泰雙語調度通知</strong><small>以 n8n、LINE 與 Gemini 把車輛進廠通知轉成中泰雙語調度訊息，泰籍同仁的請假與現場訊息也自動翻譯。</small></p></li>
+            <li data-unlock="computer"><img src="/assets/v3/obstacles/computer.webp" alt="" loading="lazy" /><p><span>手動登錄紀錄</span><strong>照片與水質數據歸檔</strong><small>以 n8n 與 LINE 把工作照片與影片依日期存入 Google Drive；SV30 等水質數據自動寫入 Google Sheets，可在 LINE 查詢最近 5 次。</small></p></li>
+            <li data-unlock="binders"><img src="/assets/v3/obstacles/binders.webp" alt="" loading="lazy" /><p><span>厚厚的 SOP</span><strong>SOP 作業時間 −10%</strong><small>協同多國團隊優化生產 SOP，作業時間減少 10%；新設備教學影片讓學習時間縮短 30%。</small></p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="experience" class="route" aria-labelledby="experience-title">
+        <div data-space-pin>
+          <canvas data-space-canvas aria-hidden="true"></canvas>
+          <canvas data-paper-canvas aria-hidden="true"></canvas>
+          <div class="section-head">
+            <h2 id="experience-title">經歷</h2>
+          </div>
+          <div class="route-track" data-route>
+            <ol class="route-stops">
+              <li id="career-0" class="stop" data-stop>
+                <span class="stop-pin" data-stop-pin aria-hidden="true"></span>
+                <h3><span>國立中興大學</span></h3>
+                <p class="stop-org">森林系 木材科學組&nbsp;·&nbsp;學士</p>
+              </li>
+              <li id="career-1" class="stop" data-stop>
+                <span class="stop-pin" data-stop-pin aria-hidden="true"></span>
+                <p class="stop-kicker"><time datetime="2024-11">2024.11</time> – <time datetime="2025-10">2025.10</time> · 南投</p>
+                <h3 lang="en"><span>Refining Manager</span></h3>
+                <p class="stop-org">台灣卜蜂企業<wbr />股份有限公司</p>
+                <ul>
+                  <li>擔任外國設備廠商工程師之溝通窗口，跨語言排除<strong>超過 10 項</strong>機械、軟體與生產異常。</li>
+                  <li>推動部門現場資訊流自動化，減少重複性溝通延遲，如現場車輛提前通知，環境審查提前通知，手抄數據數位化統計，<strong>節省部門作業時間 20</strong>%。</li>
+                  <li>規劃並製作新進設備標準化中泰雙語影音教學素材，<strong>縮短技術人員學習培訓時間30%</strong>。</li>
+                </ul>
+              </li>
+              <li id="career-2" class="stop" data-stop>
+                <span class="stop-pin" data-stop-pin aria-hidden="true"></span>
+                <p class="stop-kicker"><time datetime="2025-11">2025.11</time> – <time datetime="2026-04">2026.04</time> · Remote</p>
+                <h3 lang="en"><span>AI Workflow</span> <span>Automation Engineer</span></h3>
+                <p class="stop-org">零一成長行銷<wbr />有限公司</p>
+                <ul tabindex="0" aria-label="零一成長行銷工作成果">
+                  <li>運用 n8n 整合爬蟲與 LLM，建立「採集、摘要、圖文生成、自動排程」一條龍管線；<strong>單日可處理 100+ 篇資訊並自動交付 15+ 篇行銷文，整體內容產製效率提升 80%</strong>，大幅加速團隊業務決策與內容規模化。</li>
+                  <li>建構 Lead Generation 自動化開發信流程，自動爬取並解析潛在客戶網站，即時產出初步 SEO 優化建議與明確 CTA；同步串接模板引擎<strong>自動生成客製化 HTML 制式 Email，實現單日穩定寄發 100+ 封（或填寫實際數字）高轉換開發信</strong>。</li>
+                  <li>串接 Google Sheets、Google Cloud Storage（GCS）與多方 API，建立涵蓋文章與圖片產出的社群自動發布流程，打通「收集 → 分析 → 行動」完整資料流。</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <nav class="career-nav" data-career-nav aria-label="經歷站點">
+            <button type="button" data-career-stop="0" aria-controls="career-0"><span>森林系</span><small>學歷</small></button>
+            <button type="button" data-career-stop="1" aria-controls="career-1"><span>卜蜂</span><small>2024–2025</small></button>
+            <button type="button" data-career-stop="2" aria-controls="career-2"><span>零一</span><small>2025–2026</small></button>
+          </nav>
+        </div>
+      </section>
+
+      <section id="contact" class="contact" aria-label="聯絡">
+        <div class="phone" data-phone>
+          <div class="phone-screen">
+            <p class="phone-status" aria-hidden="true"><span data-phone-time>09:41</span><span class="phone-icons"><i></i><i></i><i></i><b></b></span></p>
+            <p class="phone-date" data-phone-date aria-hidden="true"></p>
+            <p class="phone-clock" data-phone-time aria-hidden="true">09:41</p>
+            <div class="phone-notice" data-phone-notice>
+              <img src="/assets/v3/dog-face.webp" alt="" width="160" height="160" loading="lazy" />
+              <p><strong>Lazydoooog</strong><span>有重複的工作嗎？丟過來，我把它變成系統。</span></p>
+            </div>
+            <ul class="phone-apps" aria-label="聯絡方式">
+              <li><a href="mailto:a89890123@gmail.com"><img class="app-icon" src="/assets/icons/contact/gmail-app-icon.png" alt="" width="512" height="512" loading="lazy" /><span>Gmail</span></a></li>
+              <li><a href="https://github.com/Ak89890123" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="/assets/icons/contact/github-app-icon.png" alt="" width="512" height="512" loading="lazy" /><span>GitHub</span></a></li>
+              <li><a href="https://www.linkedin.com/in/jimmy-chen-642b53103" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="/assets/icons/contact/linkedin-in-logo.png" alt="" width="512" height="512" loading="lazy" /><span>LinkedIn</span></a></li>
+              <li><a href="https://www.threads.com/@lazydoooog" target="_blank" rel="noopener noreferrer"><img class="app-icon" src="/assets/icons/contact/threads-app-icon.png" alt="" width="512" height="512" loading="lazy" /><span>Threads</span></a></li>
+              <li><a href="https://brave-cricket-1e4.notion.site/AI-23f6e83c928880d0b45ff6db26679604" target="_blank" rel="noopener noreferrer"><span class="app-icon app-folio"><img src="/assets/v3/dog-face.webp" alt="" width="160" height="160" loading="lazy" /></span><span>作品集</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>© 2026 LazyDoooog</span>
+      <a href="#hero">回到頂端 ↑</a>
+    </footer>
+
+    <script type="module">
+      if (window.location.protocol === 'file:') {
+        document.documentElement.classList.remove('is-loading', 'is-motion');
+        document.body.innerHTML = '<main style="min-height:100vh;display:grid;place-items:center;padding:24px;background:#080a0b;color:#f2f3ee;font-family:sans-serif"><p>這是 Vite 互動網站。請在 resume 資料夾執行 <code>npm run open:v3</code>，再開啟 <a style="color:#c8ff35" href="http://127.0.0.1:5173/v3.html">http://127.0.0.1:5173/v3.html</a>。</p></main>';
+      } else {
+        const html = document.documentElement;
+        let gearAnimation;
+        const finish = () => { html.classList.remove('is-loading'); gearAnimation?.kill(); };
+        if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+          import('gsap').then(({ gsap }) => {
+            if (!html.classList.contains('is-loading')) return;
+            const gears = document.querySelectorAll('[data-gear]');
+            gearAnimation = gsap.timeline({ repeat: -1 });
+            gears.forEach((gear, index) => gearAnimation.to(gear, {
+              rotation: `+=${(index ? -360 * 30 / Number(gear.dataset.gear) : 360) * 8}`,
+              transformOrigin: '50% 50%',
+              duration: 64, ease: 'none',
+            }, 0));
+          });
+        }
+        const proceed = document.querySelector('[data-loading-continue]');
+        proceed.addEventListener('click', finish);
+        document.addEventListener('v3-hero-ready', finish, { once: true });
+        try {
+          await import('/src/v3/main.js');
+          if (!html.matches('.is-motion.is-hero3d') || (location.hash && location.hash !== '#hero')) finish();
+        } catch (error) {
+          console.error('Portfolio startup failed', error);
+          html.classList.remove('is-motion');
+          document.querySelector('[data-loading-status]').textContent = '互動載入失敗，仍可瀏覽作品內容。';
+          proceed.hidden = false;
+        }
+      }
+    </script>
+  </body>
+</html>

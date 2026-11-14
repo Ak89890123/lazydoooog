@@ -1,0 +1,70 @@
+{
+  "id": "sprite-registration-reference",
+  "sourceSheet": "/assets/sprites/about/entrance_roll.png",
+  "frameIndex": 0,
+  "cell": {
+    "width": 128,
+    "height": 128
+  },
+  "alphaBbox": {
+    "x": 33,
+    "y": 20,
+    "width": 63,
+    "height": 93
+  },
+  "crownPoint": [
+    75,
+    20
+  ],
+  "deckTopY": 101,
+  "wheelCenters": {
+    "front": [
+      84,
+      109
+    ],
+    "rear": [
+      48,
+      109
+    ]
+  },
+  "wheelbase": 36,
+  "anchor": {
+    "x": 64,
+    "y": 120
+  },
+  "groundBaselineY": 112,
+  "palette": [
+    "#889c89",
+    "#f8e9d5",
+    "#fbf3e4",
+    "#e6d2ba",
+    "#687869",
+    "#f9eedc",
+    "#f8e6cd",
+    "#2f3032",
+    "#0d0b0c",
+    "#3a383a",
+    "#575650",
+    "#f1e4cf",
+    "#000000",
+    "#373336",
+    "#dcbd9d",
+    "#7f9481",
+    "#444743",
+    "#070505",
+    "#282526",
+    "#fdfaef",
+    "#8fa08d",
+    "#202021",
+    "#131313",
+    "#a9957c",
+    "#1c1518",
+    "#817971",
+    "#6c605a",
+    "#30282b",
+    "#b2af9d",
+    "#080005",
+    "#000004"
+  ],
+  "sha256": "188165f0f8ac70b66856b23ace56103f34a4f4c7024f4da7be4d605d7a7313c1"
+}

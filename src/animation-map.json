@@ -1,0 +1,262 @@
+{
+  "studio": {
+    "hero": {
+      "scrollDistanceVh": 6.4,
+      "scrub": 0.45,
+      "stages": { "filmStart": 0.1, "filmEnd": 0.70, "coverStart": 0.74, "coverEnd": 0.78, "tearStart": 0.80 }
+    },
+    "about": { "scrollDistanceVh": 2.2, "scrub": 0.45 },
+    "world": {
+      "pixelRatioCap": 1.5,
+      "dogTexture": "/assets/sprites/contact/contact-dog-skate-v2-02-glide.png",
+      "screenUnlocks": [0.12, 0.42, 0.72]
+    }
+  },
+  "v3": {
+    "hero": {
+      "scrollDistanceVh": 6,
+      "scrub": 0.45,
+      "stages": { "filmStart": 0.08, "filmEnd": 0.7, "coverStart": 0.74, "coverEnd": 0.78, "tearStart": 0.8 }
+    },
+    "hero3d": {
+      "scrollDistanceVh": 7.285714285714286,
+      "scrub": 0.6
+    },
+    "experience": {
+      "transitionVh": 4.2,
+      "entryVh": 0.65,
+      "holdVh": 2.2,
+      "morphVh": 0.7,
+      "jumpVh": 0.9,
+      "exitVh": 3,
+      "scrub": 0.55,
+      "pixelRatioCap": 1.5,
+      "groundHole": { "centerZ": 1, "maxRadius": 3.1, "gravity": 2100, "duration": 9, "openUntil": 0.56 },
+      "approvalState": "approved-2026-11-09"
+    },
+    "runner": {
+      "scrollDistanceVh": 3.6,
+      "hold": 0.3,
+      "scrub": 0.6,
+      "dogSpeed": 2.6,
+      "doorHeight": 2,
+      "sky": {
+        "moonMap": "/assets/textures/sky/lroc-color-2k.jpg",
+        "moonPosition": [0.76, 0.19],
+        "moonRadius": 0.038,
+        "cloudCoverage": 0.49,
+        "cloudDensity": 1.1,
+        "wind": [0.018, 0.007],
+        "meteorInterval": 17
+      },
+      "blockout": {
+        "shops": [
+          {"name": "山城超市", "w": 7.594316, "h": 8.499998, "d": 5.697194, "doorHeight": 1.804656, "baseHeight": 0.21468, "model": "/assets/models/runner-shop-01.glb"},
+          {"name": "永發機車行", "w": 4.822454, "h": 5.8, "d": 5.561324, "doorHeight": 1.485, "baseHeight": 0.21, "model": "/assets/models/runner-shop-02.glb"},
+          {"name": "無法度藥局", "w": 5.913354, "h": 7.5, "d": 6.047445, "doorHeight": 1.965, "baseHeight": 0.217, "model": "/assets/models/runner-shop-03.glb"},
+          {"name": "要不要吃哈密瓜水果行", "w": 4.785544, "h": 6.2, "d": 5.364753, "doorHeight": 1.5, "baseHeight": 0.25, "model": "/assets/models/runner-shop-04.glb"},
+          { "name": "目目眼鏡行", "w": 8.43977, "h": 8, "d": 7.910153, "doorHeight": 1.755, "baseHeight": 0.34, "model": "/assets/models/runner-shop-05.glb", "footprint": {"left": -4.065656, "right": 3.956178, "back": -3.955076, "front": 3.649507} },
+          {"name": "WODERNOW", "w": 8.133129, "h": 3.8, "d": 8.039281, "doorHeight": 1.042761, "baseHeight": 0.128, "model": "/assets/models/runner-shop-06.glb"}
+        ],
+        "sidewalk": { "height": 0.22, "front": -3 },
+        "road": {
+          "map": "/assets/textures/road/asphalt_02_diff_1k.jpg",
+          "normalMap": "/assets/textures/road/asphalt_02_nor_gl_1k.jpg",
+          "roughnessMap": "/assets/textures/road/asphalt_02_rough_1k.jpg",
+          "tileSize": 3,
+          "width": 8
+        },
+        "endPadding": 192,
+        "cellWidth": 8,
+        "alleyDepth": 8,
+        "terraces": [
+          { "base": 8, "rise": 5, "minHeight": 7, "maxHeight": 12, "d": 7 },
+          { "base": 27, "rise": 8, "minHeight": 10, "maxHeight": 16, "d": 7 },
+          { "base": 54, "rise": 8, "minHeight": 14, "maxHeight": 20, "d": 7 }
+        ]
+      },
+      "camera": { "fov": 38, "z": 7, "y": 0.55, "lookY": 3 },
+      "lenses": {
+        "planet": { "round": 140, "radius": 1.5, "top": 0.82 },
+        "dome": { "round": 40, "radius": 0.95, "top": 0.66 }
+      },
+      "dogModel": "/assets/models/runner-dog.glb",
+      "boardModel": "/assets/models/runner-skateboard.glb",
+      "railModel": "/assets/models/runner-rail.glb",
+      "rampModel": "/assets/models/runner-ramp.glb",
+      "buildings": [
+        { "model": "/assets/models/runner-building-01.glb", "width": 6.030725, "depth": 4.777852, "height": 9.558142, "doorHeight": 1.122, "baseHeight": 0.14854, "footprint": {"left": -2.659818, "right": 2.659776, "back": -2.313488, "front": 1.8933} },
+        { "model": "/assets/models/runner-building-02.glb", "width": 5.589535, "depth": 3.49272, "height": 9.545282, "doorHeight": 1.21, "baseHeight": 0.1408, "footprint": {"left": -2.45075, "right": 2.76353, "back": -1.62536, "front": 1.74636} },
+        { "model": "/assets/models/runner-building-03.glb", "width": 10.298779, "depth": 8.443756, "height": 12.826, "doorHeight": 1.2804, "baseHeight": 0.1408 },
+        { "model": "/assets/models/runner-building-04.glb", "width": 5.703357, "depth": 5.687997, "height": 14.793814, "doorHeight": 1.2672, "baseHeight": 0.11133, "footprint": {"left": -2.289224, "right": 2.289224, "back": -2.273381, "front": 2.394044}, "scaleMultiplier": 1.4, "heightMultiplier": 0.68, "front": -4.5 },
+        { "model": "/assets/models/runner-building-05.glb", "width": 3.410417, "depth": 2.792685, "height": 10.628787, "doorHeight": 1.37852, "baseHeight": 0.24039, "footprint": {"left": -1.639607, "right": 1.77081, "back": -1.396342, "front": 1.396342} }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "mode": "video-scrub",
+      "video": "/assets/videos/hero-title-scroll-v2-48fps-delivery.mp4",
+      "fallbackVideo": "/assets/videos/hero-title-scroll-v2-24fps-delivery.mp4",
+      "poster": "/assets/posters/hero-title-scroll-v2.jpg",
+      "finalFrame": "/assets/posters/hero-title-scroll-v2-final.png",
+      "paperTear": {
+        "image": "/assets/posters/hero-title-scroll-v2-final.png",
+        "ripTexture": "/assets/textures/codepen-rip.jpg",
+        "seamX": 0.5,
+        "seamTopX": 0.75,
+        "seamBottomX": 0.375,
+        "tearWidthRatio": 0.1333333333,
+        "ripWhiteThreshold": 0.7,
+        "tearOffset": 0.5,
+        "seed": 4.731,
+        "releaseAt": 0.5357142857,
+        "tearReleaseAmount": 1.15,
+        "tearEndAmount": 2.25,
+        "releaseDistanceScale": 0.72,
+        "releaseRotationScale": 0.58,
+        "swapDuration": 0.1,
+        "duration": 3.472,
+        "exitFadeDuration": 0.18,
+        "pixelRatioCap": 1.5
+      },
+      "startTime": 0,
+      "endTime": 10.375,
+      "pacing": "balanced",
+      "pin": true,
+      "titleHoldDuration": 0.4025,
+      "sequenceScrollDistanceVh": 10.89,
+      "heroScrollDistanceVh": 7.7020712024,
+      "scrub": 0.5,
+      "mobileFallback": {
+        "mode": "poster-and-linear-content",
+        "pin": false
+      }
+    },
+    {
+      "id": "about",
+      "mode": "gsap-dom-timeline",
+      "frame": "/assets/references/three-tv-corridor-frame-v2.png",
+      "pin": true,
+      "scrollDistanceVh": 5,
+      "powerCutFadeDistanceVh": 0.6,
+      "powerCutHoldDistanceVh": 0.15,
+      "scrub": 0.35,
+      "phaseModel": "canonical-stage-q",
+      "spriteMedia": {
+        "enabled": true,
+        "manifests": [
+          "/assets/sprites/about/entrance_roll.json",
+          "/assets/sprites/about/ollie.json",
+          "/assets/sprites/about/kickflip.json",
+          "/assets/sprites/about/boardslide_popout.json",
+          "/assets/sprites/about/exit_roll.json"
+        ],
+        "approvalState": "production-runtime-enabled"
+      },
+      "repeatMedia": {
+        "enabled": true,
+        "mode": "autoplay-loop",
+        "poster": "/assets/posters/about-repeat-detected-final.png",
+        "sources": [
+          {
+            "src": "/assets/videos/about-repeat-detected.mp4",
+            "type": "video/mp4"
+          }
+        ],
+        "scrollControlled": false,
+        "approvalState": "production-runtime-enabled"
+      },
+      "workflowMedia": {
+        "enabled": true,
+        "poster": "/assets/posters/about-n8n-workflow-24s.jpg",
+        "sources": [
+          {
+            "src": "/assets/videos/about-n8n-workflow-muted.mp4",
+            "type": "video/mp4"
+          }
+        ],
+        "approvalState": "production-runtime-enabled"
+      },
+      "mobileFallback": {
+        "mode": "three-vertical-stages",
+        "stageHeightSvh": 100,
+        "allocationSvh": 160
+      }
+    },
+    {
+      "id": "skills",
+      "mode": "gsap-canvas-spray",
+      "sprayCan": "/assets/sprites/skills/spray-can-v1.png",
+      "pin": true,
+      "scrollDistanceVh": 5.6,
+      "scrub": 0.55,
+      "titleEntryDistanceVh": 0.8,
+      "titleHoldDistanceVh": 0.35,
+      "systemEntryExtraDistanceVh": 0.5,
+      "powerOnDistanceVh": 0.35,
+      "freeSprayStart": 0.76,
+      "pixelRatioCap": 1.5,
+      "colors": ["#bd7d4e", "#658c89", "#658c89", "#bd7d4e"],
+      "groupRanges": [
+        { "start": 0.1, "end": 0.23 },
+        { "start": 0.27, "end": 0.4 },
+        { "start": 0.44, "end": 0.57 },
+        { "start": 0.61, "end": 0.74 }
+      ],
+      "approvalState": "approved-2026-07-20",
+      "mobileFallback": {
+        "mode": "static-painted-wall",
+        "pin": false
+      }
+    },
+    {
+      "id": "experience",
+      "mode": "gsap-long-wall-document-route",
+      "pin": false,
+      "transitionDistanceVh": 1.6,
+      "routeIntroDistanceVh": 0.8,
+      "dogEntryDistanceVh": 0.6,
+      "transitionPaint": "#658c89",
+      "pixelRatioCap": 1.15,
+      "stageHeightVh": 260,
+      "scrub": 0.55,
+      "routeScrub": 0.4,
+      "dogScrub": 0.55,
+      "handoffHoldDistanceVh": 0.7,
+      "cardScrub": 0.7,
+      "dogPoses": {
+        "glide": "/assets/sprites/experience/experience-dog-glide-v1.png",
+        "turn": "/assets/sprites/experience/experience-dog-turn-v1.png"
+      },
+      "approvalState": "approved-2026-07-24",
+      "mobileFallback": {
+        "mode": "static-storyboard",
+        "pin": false
+      }
+    },
+    {
+      "id": "contact",
+      "mode": "gsap-continuous-staggered-strip-handoff",
+      "pin": true,
+      "scrollDistanceVh": 5.4,
+      "stripCount": 10,
+      "stripOverlap": 0.82,
+      "camera": {
+        "encounterXRatio": 0.5,
+        "dogBoardNoseRatio": 0.22,
+        "trackStart": 0.08,
+        "encounterStart": 0.44,
+        "trackZoom": 1.06,
+        "encounterZoom": 1.24,
+        "focusStart": 0.75,
+        "settledYOffsetVh": 0.055
+      },
+      "mobileFallback": {
+        "mode": "static-settled-phone",
+        "pin": false
+      }
+    }
+  ]
+}
